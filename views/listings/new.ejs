@@ -1,0 +1,59 @@
+<% layout("/layouts/boilerplate") -%>
+<body>
+ <div class="container-fluid">
+ <div class="row">
+  <div class="col-8 offset-2">
+
+ <h3 class="text-center">Create New Listing</h3>
+ 
+ <form method="post" action="/listings" novalidate enctype="multipart/form-data" class="needs-validation">
+
+  <div class="mb-3">
+   <label for="title" class="form-label">Title</label><br>
+   <input type="text" placeholder="Enter.." required id="title" class="form-control border border-black" name="listing[title]" >
+
+   <div class="valid-feedback">Looks good!  </div>
+
+  </div>
+
+  <div class="mb-3">
+   <label  for="description" class="form-label">Description</label><br>
+  <textarea name="listing[description]" required placeholder="Enter.." id="description" class="form-control border border-black"></textarea>
+  </div>
+
+  <div class="mb-3">
+   <label  for="image" class="form-label">Upload Image</label><br>
+  <input type="file" id="image"  placeholder="Enter.." class="form-control border border-black" name="listing[image]" >
+  </div>
+  
+  <div class="row">
+   <div class="mb-3 col-4">
+    <label  for="price" class="form-label">Price</label><br>
+    <input required placeholder="Enter.." id="price" class="form-control border border-black" name="listing[price]" >
+
+    <div class="invalid-feedback"> Please Enter Valid Price </div>
+  
+   </div>
+ 
+   <div class="mb-3 col-8">
+    <label  for="location"  class="form-label"> Location</label><br>
+    <input type="text" placeholder="Enter.." required id="location" class="form-control border border-black"name="listing[location]" >
+
+    <div class="invalid-feedback"> Enter Valid Location </div>
+   </div>
+  </div>
+ 
+
+  <div class="mb-3">
+   <label  for="country" class="form-label">Country</label><br>
+   <input type="text" required placeholder="Enter.." id="country" class="form-control  border border-black" name="listing[country]" >
+
+   <div class="invalid-feedback"> Enter Valid Country </div>
+  </div>
+ 
+  <button  type="submit" class="special-btn btn btn-dark ">Add Listing</button>
+ </form><br>
+</div>
+</div>
+</div>
+</body>
