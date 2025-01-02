@@ -30,7 +30,7 @@ app.use(express.urlencoded({extended:true}));
 app.use(methodOverride("_method"));
 app.engine('ejs', ejsMate);
 
-const dbUrl = process.env.ATLAS_url
+const dbUrl = process.env.ATLAS_URL
 
 async function main(){
  await mongoose.connect(dbUrl);          //DB CONNECTION FUNC
