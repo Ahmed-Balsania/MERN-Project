@@ -1,11 +1,13 @@
 
 const Listing = require("../models/listing");
 const ExpressError = require("../utils/ExpressErr");
+const client = require("../askAI.js");
 
 
 module.exports.allListings = async (req,res)=>{
  let listings = await Listing.find({});
- res.render("./listings/home.ejs",{listings});
+ let response="";
+ res.render("./listings/home.ejs",{listings,response});
 };
 
 module.exports.newFormRender = (req,res)=>{
@@ -35,6 +37,18 @@ module.exports.searchListing = async (req,res)=>{
      return res.redirect("/listings"); 
    }
   };
+
+  module.exports.aiResponse = async(req,res)=>{
+     let{prompt} = req.body;
+     console.log(prompt);
+     const chatResponse = await client.chat.complete({
+       model: 'mistral-large-latest',
+       messages: [{role: 'user', content: prompt}],
+     });
+     let response=  chatResponse.choices[0].message.content;
+     let listings = await Listing.find({});
+    res.render("./listings/home.ejs",{listings,response});
+   };
 
 module.exports.showSingleListing = async (req,res)=>{
  let {id} = req.params;

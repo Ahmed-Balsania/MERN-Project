@@ -14,6 +14,7 @@ const ExpressError = require('./utils/ExpressErr.js');
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
 const flash = require('express-flash');
+const Listing = require("./models/listing.js");
 const User = require("./models/user.js");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
@@ -87,11 +88,12 @@ main()
  console.log(err);
 })
 
+
 //Error handler for req on undefined page
 
-// app.all("*",(req,res,next)=>{
-//   next(new ExpressError(404,"Page Not Found!"));
-// });
+app.all("*",(req,res,next)=>{
+  next(new ExpressError(404,"Page Not Found!"));
+});
 
 //ERROR HANDLER
 

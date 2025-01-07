@@ -1,0 +1,13 @@
+const { Mistral } = require('@mistralai/mistralai');
+// import { Mistral } from '@mistralai/mistralai';
+
+const apiKey = process.env.MISTRAL_API_KEY;
+
+const client = new Mistral({apiKey: apiKey});
+
+module.exports = client;
+
+// const chatResponse = await client.chat.complete({
+//   model: 'mistral-large-latest',
+//   messages: [{role: 'user', content: 'What is the best French cheese?'}],
+// });

@@ -30,7 +30,7 @@ router.get("/new",isLoggedIn,
 router.post("/",upload.single('listing[image]'),
   wrapAsync(listingController.addListings));
 
-
+router.post("/askAi",listingController.aiResponse);
 //single listing item route , read
 
 router.get("/:id",

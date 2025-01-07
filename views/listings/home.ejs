@@ -25,7 +25,35 @@
    <% } %>
 
  </div>
+ <!-- <button class="special-btn ai btn btn-dark ">Ask AI</button> -->
+ <button class="btn btn-primary ai special-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" aria-controls="staticBackdrop">
+ AI Chat-Bot
+</button>
 
-
-
+<div class="offcanvas offcanvas-start" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop" aria-labelledby="staticBackdropLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="staticBackdropLabel">Travel Planner</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div>
+      Open AI chatbot again incase if it closes
+      <div class="output">
+      
+        <% if(response){ %>
+          <textarea rows="20" readonly style="width: 100%;flex-grow: 1;height: 100%;">
+            <%=response%>
+          </textarea>
+         <%}%>
+        
+      </div>
+      <div class="input">
+       <form action="/listings/askAi" method="post">
+        <input placeholder="Enter..." name="prompt" type="text">
+        <button type="submit">Ask</button>
+       </form>
+      </div>
+    </div>
+  </div>
+</div>
 </body>
