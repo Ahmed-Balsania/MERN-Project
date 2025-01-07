@@ -6,7 +6,7 @@
       <b class="pt-4">Title : <big><%=item.title%></big></b><br>
     </div>
     <div class="row">
-      <div class="col col-lg-6 col-md-8 col-sm-12  offset-3">
+      <div class="col col-lg-6 col-md-8 col-sm-12  offset-sm-3">
         <div class="card">
           <img src="<%=item.image.url%>" height="20px"  class="card-img-top show-img" alt="img">
           <div class="card-body">
@@ -23,7 +23,7 @@
     </div>
   <% if(currUser && currUser._id.equals(item.owner._id)){ %>
     <div class="row">
-      <div class="col col-lg-6 col-md-8 col-sm-12 offset-3 ml-3">
+      <div class="col col-lg-6 col-md-8 col-sm-12 offset-sm-3 ml-3">
        <a class="ml-3" href="/listings/<%=item._id%>/edit"><button class="special-btn btn btn-dark ">Edit</button></a>
        &emsp;
        <form class="ml-3" method="post" id="del-form" action="/listings/<%=item._id%>?_method=DELETE">
